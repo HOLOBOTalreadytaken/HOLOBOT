@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css"  href="./css/mobile.css" media="screen and (max-width: 900px)">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HoloBot UI |</title>
+  </head>
+
+  <body 
+  onKeyPress="if (event.keyCode == 122) testSendForward()
+  if (event.keyCode == 115) testSendBackward()
+  if (event.keyCode == 98) testSendStop()
+  if (event.keyCode == 113) testSendStepLeft()
+  if (event.keyCode == 100) testSendStepRight()
+  if (event.keyCode == 105) testSendStandUp()
+  if (event.keyCode == 107) testSendSitDown()
+  if (event.keyCode == 103) testSendDemo1()
+  if (event.keyCode == 104) testSendButtonMode()"
+  >
+    <div class="conteneur">
+
+      <header>
+        <h1 class="bg-success">HOLOBOT ISEN LILLE</h1>
+        <p><kbd>Projet 2017/2018</kbd></p>
+      </header>
+
+      <main>
+        <div class="streaming">
+          <h2 class="bg-info">Streaming Caméra Holobot</h2>
+          <img name="stream Cam" src="http://192.168.0.102:8081/?action=stream" class="img-thumbnail" width="500" height="400" alt="Live Holobot" title="stream cam" />
+
+          <a href="dashboard.html" target="_blank"> <button type="button"  id="dashboardButton" value="dashboard"
+          title="dashboard" class="btn btn-rectangle">Dashboard</button> </a>
+          
+          <a href="https://github.com/DavidDESM/Holobot-ISEN-Lille" target="_blank"> <button type="button"  id="gitButton" value="git"
+          title="git" class="btn btn-rectangle">Git</button> </a>
+        </div>
+      </main>
+
+      <aside>
+        <div class="game">
+          <h2 class="bg-info">Commande du robot</h2>
+          <img src="img/game.png" alt="Manette Holobot" id="jeu" />
+
+          <button type="button" value="Forward" id="stepForwardButton"
+          title="stepForwardButton" onclick="testSendForward()" class="btn btn-primary btn-carré" > <span class="glyphicon glyphicon-chevron-up"></span> </button>
+            
+          <button type="button"  value="Back" id="stepBackwardButton"
+          title="stepBackwardButton" onclick="testSendBackward()" class="btn btn-primary btn-carré" > <span class="glyphicon glyphicon-chevron-down"></span> </button>
+            
+          <button type="button"  value="Stop" id="stopButton"
+          title="stopButton" onclick="testSendStop()" class="btn btn-danger btn-carré" > <span class="glyphicon glyphicon-remove-circle"></span> </button>
+            
+          <button type="button"  id="stepLeftButton" value="Left"
+          title="stepLeftButton" onclick="testSendStepLeft()" class="btn btn-primary btn-carré" > <span class="glyphicon glyphicon-chevron-left"></span> </button>
+            
+          <button type="button"  id="stepRightButton" value="Right"
+          title="stepRightButton" onclick="testSendStepRight()" class="btn btn-primary btn-carré" > <span class="glyphicon glyphicon-chevron-right"></span> </button>
+            
+          <button type="button"  id="standUpButton" value="Up"
+          title="standUpButton" onclick="testSendStandUp()" class="btn btn-warning btn-circle" > <span class="glyphicon glyphicon-collapse-up"></span> </button>
+            
+          <button type="button"  id="sitDownButton" value="Down"
+          title="sitDown" onclick="testSendSitDown()" class="btn btn-warning btn-circle" > <span class="glyphicon glyphicon-collapse-down"></span> </button>  
+            
+          <button type="button"  id="demoButton" value="Demo"
+          title="Demo" onclick="testSendDemo1()" class="btn btn-danger btn-rectangle" >Démo</button> 
+
+          <button type="button"  id="modeButton" value="Mode"
+          title="Mode" onclick="testSendButtonMode()" class="btn btn-success btn-rectangle" >Mode</button> 
+            
+          <button type="button"  id="rotDroitButton" value="rotDroit"
+          title="rotDroit" onclick="" class="btn btn-circle" >
+		  <img id="rot_right" src="img/rotation_right.png" alt="Rot Droite" /></button> 
+            
+          <button type="button"  id="rotGaucheButton" value="rotGauche"
+          title="rotGauche" onclick="" class="btn btn-circle" >
+		  <img id="rot_left" src="img/rotation_left.png" alt="Rot Gauche" /></button> 
+		  
+		  <button type="button" value="ArmUp" id="ArmUp"
+          title="armUpButton" onclick="" class="btn btn-primary btn-carré"> <span class="glyphicon glyphicon-chevron-up"></span> </button>
+            
+          <button type="button"  value="ArmDown" id="ArmDown"
+          title="armDownButton" onclick="" class="btn btn-primary btn-carré"> <span class="glyphicon glyphicon-chevron-down"></span> </button>
+          
+
+          <button type="button"  id="Pince" 
+          title="Pince" class="btn btn-circle" onclick="">
+		  <img id="Main" src="img/Main.png" alt="Image main" /> 
+          </button> 
+        </div>
+      </aside>
+	
+      <footer>
+        <p>WebPage version 2.0</p>
+      </footer>
+
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+
+      var socket = io.connect('http://192.168.0.11:8080');
+
+      function testSendForward(){
+        socket.emit('message1','message');
+      }
+      function testSendStop(){
+        socket.emit('message0','message');
+      }
+      function testSendBackward(){
+        socket.emit('message2','message');
+      }
+      function testSendStepLeft(){
+        socket.emit('message4','message');
+      }
+      function testSendStepRight(){
+        socket.emit('message3','message');
+      }
+      function testSendStandUp(){
+        socket.emit('message5','message');
+      }
+      function testSendSitDown(){
+        socket.emit('message6','message');
+      }
+      function testSendButtonMode(){
+        socket.emit('message7','message');
+      }
+      function testSendDemo1() {
+        socket.emit('message8','message');
+      }
+	  
+    </script>
+
+  </body>
+</html>
