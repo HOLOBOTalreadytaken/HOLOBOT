@@ -6,3 +6,5 @@ To start the robot's leg :
   - launch controller.js
   
 When it's done, you can connect to the controller on your browser (make sure to be connected to the right network)
+
+You can now use the robot ;)
