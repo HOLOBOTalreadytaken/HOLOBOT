@@ -1,0 +1,8 @@
+To start the robot's leg :
+
+  - Go in MQTT-SERIAL
+  - launch setup.json , then mqtt_gateway.js (It's very important to launch them in this order)
+  - then go in IHM
+  - launch controller.js
+  
+When it's done, you can connect to the controller on your browser (make sure to be connected to the right network)
