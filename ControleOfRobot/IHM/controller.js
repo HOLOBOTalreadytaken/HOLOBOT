@@ -4,9 +4,11 @@ var http = require('http');
 var fs = require('fs');
 
 client.connect(8080, '192.168.0.11', function(){
-  console.log('Connected');
-  client.write('robotSelected:Hexapod 1');
+ console.log('Connected');
+ client.write('robotSelected:Hexapod 1');
 });
+
+
 
 fs.readFile('./index.html', 'utf-8', function(error, content) {
 	htmlFile = content;
@@ -21,9 +23,33 @@ fs.readFile('./css/bootstrap.css', 'utf-8', function(error, content) {
     });
 
 fs.readFile('./img/game.png', function(error, content) {
-	img = content;
+	img1 = content;
     });
-
+fs.readFile('./img/Main.png', function(error, content) {
+	img2 = content;
+    });
+fs.readFile('./img/rotation_left.png', function(error, content) {
+	img3 = content;
+    });
+fs.readFile('./img/rotation_right.png', function(error, content) {
+	img4 = content;
+    });
+fs.readFile('./img/chevron-up.png', function(error, content) {
+	img5 = content;
+    });
+fs.readFile('./img/chevron-down.png', function(error, content) {
+	img6 = content;
+    });
+fs.readFile('./img/chevron-left.png', function(error, content) {
+	img7 = content;
+    });
+fs.readFile('./img/chevron-right.png', function(error, content) {
+	img8 = content;
+    });
+fs.readFile('./img/Stop.png', function(error, content) {
+	img9 = content;
+    });
+	
 // Chargement du fichier index.html et des css affichés au client
 var server = http.createServer(function(req, res) {
     switch(req.url) {
@@ -37,7 +63,39 @@ var server = http.createServer(function(req, res) {
 		break;
 	case "/img/game.png":
 		res.writeHead(200,{"Content-Type":"image/png"});
-		res.write(img);
+		res.write(img1);
+		break;
+	case "/img/Main.png":
+		res.writeHead(200,{"Content-Type":"image/png"});
+		res.write(img2);
+		break;
+	case "/img/rotation_left.png":
+		res.writeHead(200,{"Content-Type":"image/png"});
+		res.write(img3);
+		break;
+	case "/img/rotation_right.png":
+		res.writeHead(200,{"Content-Type":"image/png"});
+		res.write(img4);
+		break;
+	case "/img/chevron-up.png":
+		res.writeHead(200,{"Content-Type":"image/png"});
+		res.write(img5);
+		break;
+	case "/img/chevron-down.png":
+		res.writeHead(200,{"Content-Type":"image/png"});
+		res.write(img6);
+		break;
+	case "/img/chevron-left.png":
+		res.writeHead(200,{"Content-Type":"image/png"});
+		res.write(img7);
+		break;
+	case "/img/chevron-right.png":
+		res.writeHead(200,{"Content-Type":"image/png"});
+		res.write(img8);
+		break;
+	case "/img/Stop.png":
+		res.writeHead(200,{"Content-Type":"image/png"});
+		res.write(img9);
 		break;
 	default : 
 		res.writeHead(200,{"Content-Type":"text/html"});
@@ -123,6 +181,8 @@ function demo1(){
   console.log('Demo1');
   client.write('controlRobot:8');
 }
+
+
 
 // 0 arret
 // 1 en avant

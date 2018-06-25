@@ -6796,17 +6796,16 @@ button.close {
 .game {
   position: relative;
   margin: auto;
+  margin-left: -200px;
   background-size: contain;
   text-align: center;
 }
 
 #jeu {
   position: relative;
-  margin: auto;
+  margin: -160px -50px -25px -50px;
   width: 100%;
   height: 100%;
-  top:-100px;
-  margin-bottom: -100px;
   overflow: hidden;
   background-size: contain;
 }
@@ -6814,10 +6813,10 @@ button.close {
 #stepForwardButton {
   position:absolute;
   transition: .5s ease;
-  top: 43.5%;
-  left: 26%;
-  width: 7.25%;
-  height: 8%;
+  top: 42.75%;
+  left: 26.15%;
+  width: 7%;
+  height: 8.5%;
   font-size: 150%;
 }
 
@@ -6825,9 +6824,9 @@ button.close {
   position:absolute;
   transition: .5s ease;
   top: 59.5%;
-  left: 26%;
-  width: 7.25%;
-  height: 8%;
+  left: 26.15%;
+  width: 7%;
+  height: 8.5%;
   font-size: 150%;
 }
 
@@ -6835,8 +6834,8 @@ button.close {
   position:absolute;
   transition: .5s ease;
   top: 51.25%;
-  left: 25.75%;
-  width: 7.75%;
+  left: 26%;
+  width: 7.25%;
   height: 8.5%;
   font-size: 150%;
 }
@@ -6844,29 +6843,29 @@ button.close {
 #stepLeftButton {
   position:absolute;
   transition: .5s ease;
-  top: 51.5%;
-  left: 18.6%;
-  width: 7.25%;
-  height: 8%;
+  top: 51.20%;
+  left: 19%;
+  width: 7%;
+  height: 8.5%;
   font-size: 150%;
 }
 
 #stepRightButton {
   position:absolute;
   transition: .5s ease;
-  top: 51.5%;
+  top: 51.20%;
   left: 33.2%;
-  width: 7.25%;
-  height: 8%;
+  width: 7%;
+  height: 8.5%;
   font-size: 150%;
 }
 
 #standUpButton {
   position:absolute;
   transition: .5s ease;
-  top: 42.5%;
-  left: 65.5%;
-  width: 10%;
+  top: 42%;
+  left: 65.90%;
+  width: 9%;
   height: 10.5%;
   border-radius: 60%;
   font-size: 150%;
@@ -6875,9 +6874,9 @@ button.close {
 #sitDownButton {
   position:absolute;
   transition: .5s ease;
-  top: 58%;
-  left: 65.5%;
-  width: 10%;
+  top: 58.40%;
+  left: 65.90%;
+  width: 9%;
   height: 10.5%;
   border-radius: 60%;
   font-size: 150%;
@@ -6923,26 +6922,255 @@ button.close {
   font-size: 150%;
 }
 
-#blackDroitButton {
+#rotDroitButton {
   position:absolute;
   transition: .5s ease;
-  top: 50.5%;
-  left: 73%;
-  width: 10%;
+  top: 50%;
+  left: 72.65%;
+  width: 9%;
   height: 10.5%;
   border-radius: 60%;
   font-size: 150%;
 }
 
-#blackGaucheButton {
+#rotGaucheButton {
   position:absolute;
   transition: .5s ease;
-  top: 50.5%;
-  left: 58.25%;
-  width: 10%;
+  top: 50%;
+  left: 59.25%;
+  width: 9%;
   height: 10.5%;
   border-radius: 60%;
   font-size: 150%;
+}
+
+#rot_right {
+  width:100%;
+  height:100%;
+}
+
+#rot_left {
+  width:100%;
+  height:100%;
+}
+
+#ArmUp {
+  position:absolute;
+  transition: .5s ease;
+  top: 30%;
+  left: 22.575%;
+  width: 7%;
+  height: 8.5%;
+  font-size: 150%;
+}
+
+#ArmDown {
+  position:absolute;
+  transition: .5s ease;
+  top: 30%;
+  left: 29.675%;
+  width: 7%;
+  height: 8.5%;
+  font-size: 150%;
+}
+
+#Pince {
+  position:absolute;
+  transition: .5s ease;
+  top: 30%;
+  left: 67%;
+  width: 7%;
+  height: 8.5%;
+  font-size: 150%;
+}
+
+#Main {
+  width:100%;
+  height:100%;
+}
+
+#Chevron_Up {
+  width:100%;
+  height:100%;
+}
+#Chevron_Down {
+  width:100%;
+  height:100%;
+}
+#Chevron_Right {
+  width:100%;
+  height:100%;
+}
+#Chevron_Left {
+  width:100%;
+  height:100%;
+}
+#ArmChevronUp {
+  width:100%;
+  height:100%;
+}
+#ArmChevronDown {
+  width:100%;
+  height:100%;
+}
+#StandUpChevronUp {
+  width:100%;
+  height:100%;
+}
+#SitDownChevronDown {
+  width:100%;
+  height:100%;
+}
+#Stop {
+  width:100%;
+  height:100%;
+}
+#ToucheZ {
+	position:absolute;
+  transition: .5s ease;
+  top: 12%;
+  left: 10%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheB {
+	position:absolute;
+  transition: .5s ease;
+  top: 15%;
+  left: 10%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheS {
+	position:absolute;
+  transition: .5s ease;
+  top: 18%;
+  left: 10%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheQ {
+	position:absolute;
+  transition: .5s ease;
+  top: 15%;
+  left: 7%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheD {
+	position:absolute;
+  transition: .5s ease;
+  top: 15%;
+  left: 13%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheI {
+	position:absolute;
+  transition: .5s ease;
+  top: 12%;
+  left: 31%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheJ {
+	position:absolute;
+  transition: .5s ease;
+  top: 15%;
+  left: 28%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheK {
+	position:absolute;
+  transition: .5s ease;
+  top: 18%;
+  left: 31%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheL {
+	position:absolute;
+  transition: .5s ease;
+  top: 15%;
+  left: 34%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheG {
+	position:absolute;
+  transition: .5s ease;
+  top: 13.5%;
+  left: 20.5%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheH {
+	position:absolute;
+  transition: .5s ease;
+  top: 16.5%;
+  left: 20.5%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheR {
+	position:absolute;
+  transition: .5s ease;
+  top: 6%;
+  left: 8.5%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheT {
+	position:absolute;
+  transition: .5s ease;
+  top: 6%;
+  left: 11.5%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#ToucheP {
+	position:absolute;
+  transition: .5s ease;
+  top: 6%;
+  left: 31%;
+  width: 3%;
+  height: 3%;
+  font-size: 80%;
+  margin-right: 1px; padding-left:2px; padding-right:2px; border: 1px solid #6f6f6f; background-color: #cfcfcf; border-radius: 0.2em; font-weight: bold; -moz-border-radius: 0.2em;
+}
+#TitreClavier {
+	position:absolute;
+  transition: .5s ease;
+  top: 21.5%;
+  left: 12%;
+  padding:2px; border:5px double #ff6b00; background-color:#ffdbc1;
 }
 
 .conteneur {
