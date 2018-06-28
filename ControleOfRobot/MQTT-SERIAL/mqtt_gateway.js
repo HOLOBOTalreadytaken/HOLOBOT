@@ -3,7 +3,7 @@
 const MQTT = require('mqtt');
 const SerialPort = require('serialport');
 const FS = require('fs');
-const setup = JSON.parse(FS.readFileSync('/home/pi/MQTT-SERIAL/setup.json','utf8'));
+const setup = JSON.parse(FS.readFileSync('/home/pi/ControleOfRobot/MQTT-SERIAL/setup.json','utf8'));
 const mqtt = MQTT.connect(setup.mqtt);
 console.log("Launching gateway ...\n");	
 

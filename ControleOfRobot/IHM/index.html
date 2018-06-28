@@ -19,8 +19,16 @@
 			  if (event.keyCode == 107) testSendSitDown()
 			  if (event.keyCode == 103) testSendDemo1()
 			  if (event.keyCode == 104) testSendButtonMode()
-			  if (event.keyCode == 98) testSendStop()"
+			  if (event.keyCode == 98) testSendStop()
+			  if (event.keyCode == 114) testSendArmUp()
+			  if (event.keyCode == 116) testSendArmDown()
+			  if (event.keyCode == 111) testSendHeadUp()
+			  if (event.keyCode == 112) testSendHeadDown()
+			  if (event.keyCode == 110) testSendPlier()
+			  if (event.keyCode == 106) testSendLeftRotationBase()
+			  if (event.keyCode == 108) testSendRightRotationBase()"
   >
+  
     <div class="conteneur">
 
       <header>
@@ -57,7 +65,9 @@
 		  <span class="touche" id="ToucheL">L</span>
 		  <span class="touche" id="ToucheR">R</span>
 		  <span class="touche" id="ToucheT">T</span>
+		  <span class="touche" id="ToucheO">O</span>
 		  <span class="touche" id="ToucheP">P</span>
+		  <span class="touche" id="ToucheN">N</span>
 		  <span class="Titre Clavier" id="TitreClavier">Commande via le clavier</span>
           <img src="img/game.png" alt="Manette Holobot" id="jeu" />
 
@@ -96,26 +106,36 @@
           title="Mode" onclick="testSendButtonMode()" class="btn btn-success btn-rectangle" >Mode</button> 
             
           <button type="button"  id="rotDroitButton" value="rotDroit"
-          title="rotDroit" onclick="" class="btn btn-circle" >
+          title="rotDroit" onclick="testSendRightRotationBase()" class="btn btn-circle" >
 		  <img id="rot_right" src="img/rotation_right.png" alt="Rot Droite" /></button> 
             
           <button type="button"  id="rotGaucheButton" value="rotGauche"
-          title="rotGauche" onclick="" class="btn btn-circle" >
+          title="rotGauche" onclick="testSendLeftRotationBase()" class="btn btn-circle" >
 		  <img id="rot_left" src="img/rotation_left.png" alt="Rot Gauche" /></button> 
 		  
 		  <button type="button" value="ArmUp" id="ArmUp"
-          title="armUpButton" onclick="" class="btn btn-info btn-carré"> 
+          title="armUpButton" onclick="testSendArmUp()" class="btn btn-info btn-carré"> 
 		  <img id="ArmChevronUp" src="img/chevron-up.png" alt="Chevron Up" /></button>
             
           <button type="button"  value="ArmDown" id="ArmDown"
-          title="armDownButton" onclick="" class="btn btn-info btn-carré"> 
+          title="armDownButton" onclick="testSendArmDown()" class="btn btn-info btn-carré"> 
 		  <img id="ArmChevronDown" src="img/chevron-down.png" alt="Chevron Down" /></button>
          
 
           <button type="button"  id="Pince" 
-          title="Pince" class="btn btn-circle" onclick="">
+          title="Pince" onclick="testSendPlier()" class="btn btn-circle" onclick="">
 		  <img id="Main" src="img/Main.png" alt="Image main" /> 
           </button> 
+		  
+		    <button type="button" value="HeadUp" id="HeadUp"
+          title="headUpButton" onclick="testSendHeadUp()" class="btn btn-info btn-carré"> 
+		  <img id="HeadChevronUp" src="img/chevron-up.png" alt="Chevron Up" /></button>
+            
+          <button type="button"  value="HeadDown" id="HeadDown"
+          title="headDownButton" onclick="testSendHeadDown()" class="btn btn-info btn-carré"> 
+		  <img id="HeadChevronDown" src="img/chevron-down.png" alt="Chevron Down" /></button>
+		  
+		  
         </div>
       </aside>
 	
@@ -127,14 +147,17 @@
 
     <script src="socket.io/socket.io.js"></script>
     <script>
-
+	
+	  
+	  
       var socket = io.connect('http://192.168.0.10:8080');
-
+		  
+	  
+	function testSendStop(){
+        socket.emit('message0','message');
+      }
       function testSendForward(){
         socket.emit('message1','message');
-      }
-      function testSendStop(){
-        socket.emit('message0','message');
       }
       function testSendBackward(){
         socket.emit('message2','message');
@@ -154,10 +177,31 @@
       function testSendButtonMode(){
         socket.emit('message7','message');
       }
-      function testSendDemo1() {
+	  function testSendDemo1() {
         socket.emit('message8','message');
       }
-
+      function testSendArmUp() {
+        socket.emit('message9','message');
+      }
+	  function testSendArmDown() {
+        socket.emit('message10','message');
+      }
+	  function testSendPlier() {
+        socket.emit('message11','message');
+      }
+	  function testSendRightRotationBase() {
+        socket.emit('message12','message');
+      }
+	  function testSendLeftRotationBase() {
+        socket.emit('message13','message');
+      }
+	  function testSendHeadUp() {
+        socket.emit('message14','message');
+      }
+	  function testSendHeadDown() {
+        socket.emit('message15','message');
+      }
+	  
 	  
     </script>
 

@@ -3,6 +3,7 @@ var client = new NET.Socket();
 var http = require('http');
 var fs = require('fs');
 
+
 client.connect(8080, '192.168.0.11', function(){
  console.log('Connected');
  client.write('robotSelected:Hexapod 1');
@@ -103,9 +104,11 @@ var server = http.createServer(function(req, res) {
 	}
 	res.end();
 });
-
+ 
 // Chargement de socket.io
 var io = require('socket.io').listen(server);
+
+
 
 // Quand un client se connecte, on le note dans la console
 io.sockets.on('connection', function (socket) {
@@ -139,19 +142,39 @@ io.sockets.on('connection', function (socket) {
     socket.on('message8',function(message){
       demo1();
     });
+	socket.on('message9',function(message){
+      ArmUp();
+    });
+	socket.on('message10',function(message){
+      ArmDown();
+    });
+	socket.on('message11',function(message){
+      Plier();
+    });
+	socket.on('message12',function(message){
+      RightRotationBase();
+    });
+	socket.on('message13',function(message){
+      LeftRotationBase();
+    });
+	socket.on('message14',function(message){
+      HeadUp();
+    });
+	socket.on('message15',function(message){
+      HeadDown();
+    });
 });
 
 
 server.listen(8080);
 
-
-function stepForward(){
-  console.log('Forward');
-  client.write('controlRobot:1');
-}
 function stop(){
   console.log('Stop');
   client.write('controlRobot:0');
+}
+function stepForward(){
+  console.log('Forward');
+  client.write('controlRobot:1');
 }
 function stepBackward(){
   console.log('Backward');
@@ -181,6 +204,35 @@ function demo1(){
   console.log('Demo1');
   client.write('controlRobot:8');
 }
+function ArmUp(){
+  console.log('ArmUp');
+  client.write('controlRobot:9');
+}
+function ArmDown(){
+  console.log('ArmDown');
+  client.write('controlRobot:10');
+}
+function Plier(){
+  console.log('Plier');
+  client.write('controlRobot:11');
+}
+function RightRotationBase(){
+  console.log('RightRotationBase');
+  client.write('controlRobot:12');
+}
+function LeftRotationBase(){
+  console.log('LeftRotationBase');
+  client.write('controlRobot:13');
+}
+function HeadUp(){
+  console.log('HeadUp');
+  client.write('controlRobot:14');
+}
+function HeadDown(){
+  console.log('HeadDown');
+  client.write('controlRobot:15');
+}
+
 
 
 
