@@ -1,0 +1,42 @@
+import os
+import time
+import couleur
+import effet
+
+
+from multiprocessing import Process
+from zmq.eventloop import ioloop
+
+# or local ip of MATRIX creator
+creator_ip = os.environ.get('CREATOR_IP', '127.0.0.1')
+
+# port for everloop driver
+creator_everloop_base_port = 20013 + 8
+
+def led_error_callback(error):
+    """This just captrues an error and prints it to stdout"""
+    print('{0}'.format(error))
+
+    
+
+if __name__ == '__main__':
+    # Instantiate ioloop
+    ioloop.install()
+
+    
+    #effet.clignotte(couleur.blanc(int(input('intensité :'))),50)
+
+#course
+    #effet.send_image(couleur.off())
+    #time.sleep(3)
+    #effet.send_image(couleur.rouge(25))
+    #time.sleep(1)
+    #effet.send_image(couleur.orange(25))
+    #time.sleep(1)
+    #effet.send_image(couleur.vert(25))
+    #time.sleep(0.5)
+    #effet.tourne(couleur.test(150),1500)
+    #effet.clignotte(couleur.violet(25),10)
+    effet.send_image(couleur.off())
+    effet.spiral(couleur.vert(25),20)
+    

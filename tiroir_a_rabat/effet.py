@@ -48,7 +48,7 @@ def send_image(image) :
 #----------------------------------------------------------------------------------#
 # On definit les animations
 
-def clignotte(image,n):
+def clignote(image,n):
     
     for i in range(0,n):
         send_image(couleur.off())
@@ -98,7 +98,7 @@ def pulsation(image,n):
     return 1
 
 
-def spiral(image,n):
+def spirale(image,n):
     tmp=deepcopy(image)
     send_image(image)
     time.sleep(0.2)
@@ -139,4 +139,28 @@ def volet(image,n):
             send_image(image)
               
         image = deepcopy(tmp)
+    return 1
+
+def volet_inverse(image,n):
+    tmp=deepcopy(image)
+    send_image(image)
+    time.sleep(0.2)
+    
+    for j in range(int(34*n/100)):
+        time.sleep(0.2)
+
+        image[j].red = 50
+        image[j].green = 50
+        image[j].blue = 50
+        image[j].white = 50
+
+        image[34-j].red = 50
+        image[34-j].green = 50
+        image[34-j].blue = 50
+        image[34-j].white = 50
+            
+        send_image(image)
+              
+        image = deepcopy(tmp)
+        
     return 1

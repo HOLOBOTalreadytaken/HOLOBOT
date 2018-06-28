@@ -1,2 +1,0 @@
-import Trois_fonction_reconaissance_associee_fichier_a_lancer
-Trois_fonction_reconaissance_associee_fichier_a_lancer.reconnaissance_faciale('/home/pi/robinfinal.jpg')

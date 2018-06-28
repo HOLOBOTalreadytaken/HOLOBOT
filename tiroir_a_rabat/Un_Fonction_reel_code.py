@@ -5,7 +5,7 @@ import os
 
 #Fonction qui nous permet de recuperer les photos prises et enregistrées auparavant (fonction que l'on réutilise dans notre fonction principale d'enregistrement)
 def getImagesAndLabels(path):
-    detector = cv2.CascadeClassifier('/home/pi/Projet/haarcascades/haarcascade_frontalface_default.xml') #ATTENTION, ici il faut changer le chemin du dossier dans lequel vous avez telecharge le fichier haarcascade auparavant
+    detector = cv2.CascadeClassifier('/home/pi/tiroir_a_rabat/ressources_faciales/opencv/data/haarcascades/haarcascade_frontalface_default.xml') #ATTENTION, ici il faut changer le chemin du dossier dans lequel vous avez telecharge le fichier haarcascade auparavant
     imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
     faceSamples=[]
     ids=[]
@@ -20,9 +20,10 @@ def getImagesAndLabels(path):
     return faceSamples, ids
 
 def enregistrement_database(id_liste):
-    face_detector = cv2.CascadeClassifier('/home/pi/Projet/haarcascades/haarcascade_frontalface_default.xml') #ATTENTION, ici il faut changer le chemin du dossier dans lequel vous avez telecharge le fichier haarcascade auparavant
-    path='/home/pi/Projet/FacialRecognitionProject/dataset' #ATTENTION, ici il faut changer le chemin du dossier dans lequel vous enregistrez les photos
+    face_detector = cv2.CascadeClassifier('/home/pi/tiroir_a_rabat/ressources_faciales/opencv/data/haarcascades/haarcascade_frontalface_default.xml') #ATTENTION, ici il faut changer le chemin du dossier dans lequel vous avez telecharge le fichier haarcascade auparavant
+    path='/home/pi/tiroir_a_rabat/Photos' #ATTENTION, ici il faut changer le chemin du dossier dans lequel vous enregistrez les photos
     recognizer = cv2.face.LBPHFaceRecognizer_create()
+    #recognizer = cv2.LBPHFaceRecognizer_creat()
     cam=cv2.VideoCapture(0)
     cam.set(3, 640)
     cam.set(4, 480)
@@ -36,19 +37,21 @@ def enregistrement_database(id_liste):
         for(x,y,w,h) in faces:
             cv2.rectangle(img, (x,y), (x+w,y+h), (255,0,0), 2)
             count +=1
-            
-            cv2.imwrite("/home/pi/Projet/FacialRecognitionProject/dataset/User."+ str(id_liste)+'.'+str(count)+".jpg",gray[y:y+h,x:x+w]) #Attention, ici il faut aussi changer le chemin du dossier dans lequel on enregistre les photos
+            print("je vais prendre photo numero {0}".format(count))
+            cv2.imwrite("/home/pi/tiroir_a_rabat/Photos/"+ str(id_liste)+'.'+str(count)+".jpg",gray[y:y+h,x:x+w]) #Attention, ici il faut aussi changer le chemin du dossier dans lequel on enregistre les photos
             cv2.imshow('image', img)
         k=cv2.waitKey(100) & 0xff
         if k == 27:
             break
         elif count >=15:
             break
+    print("fermeture camera")
     cam.release()
     cv2.destroyAllWindows()
     faces,ids=getImagesAndLabels(path)
     recognizer.train(faces, np.array(ids))
-    recognizer.write('/home/pi/Projet/FacialRecognitionProject/trainer/trainer.yml') #Attention, ici il faut indiquer le chemin du dossier dans lequel vous allez enregistrer le fichier .yml qui correspond aux matrices déduies des visages enregistrés
+    #recognizer.write('/home/pi/matrix-creator-malos/src/python_test/Trainer/')#Attention, ici il faut indiquer le chemin du dossier dans lequel vous allez enregistrer le fichier .yml qui correspond aux matrices déduies des visages enregistrés
+    recognizer.write('/home/pi/tiroir_a_rabat/Trainer/trainer.yml')
     print("\n {0} faces traines. Exiting Program".format(len(np.unique(ids))))
     print(id_liste)
     return(id_liste)

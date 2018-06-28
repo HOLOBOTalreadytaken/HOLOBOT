@@ -1,6 +1,7 @@
 import os
 import zmq
 import time
+import random
 from matrix_io.proto.malos.v1 import driver_pb2
 from matrix_io.proto.malos.v1 import io_pb2
 
@@ -176,6 +177,23 @@ def off():
         image.append(ledValue)
     
     return image
+
+def multicolore(intensity):
+    image = []
+    for led in range(35):
+        ledValue = io_pb2.LedValue()
+        rdm = randint(0,intensity)
+        ledValue.blue = rdm
+        rdm = randint(0,intensity)
+        ledValue.red = rdm
+        rdm = randint(0,intensity)
+        ledValue.green = rdm
+        rdm = randint(0,intensity)
+        ledValue.white = rdm
+        image.append(ledValue)
+	
+    return image
+
 
 
 def R2D2():

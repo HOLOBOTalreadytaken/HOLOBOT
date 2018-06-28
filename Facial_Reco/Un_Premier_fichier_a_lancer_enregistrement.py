@@ -1,3 +1,0 @@
-import Un_fonction_enreg_associe_fichier_lancement
-
-Un_fonction_enreg_associe_fichier_lancement.enregistrement_database(1)

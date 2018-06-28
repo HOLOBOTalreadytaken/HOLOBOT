@@ -1,0 +1,3 @@
+import Deux_Fonction_reel_code
+
+Deux_Fonction_reel_code.enregistrement_database(2)
