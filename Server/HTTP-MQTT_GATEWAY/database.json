@@ -114,7 +114,7 @@
         },
         {
             "address": "192.168.0.110",
-            "robotSelected": "robot ISEN 1"
+            "robotSelected": "Hexapod 1"
         },
         {
             "address": "192.168.0.100",

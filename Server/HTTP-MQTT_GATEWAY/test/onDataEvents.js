@@ -164,31 +164,6 @@ var dataPacketLeftRotationBase = {
   }
 };
 
-var dataPacketHeadUp = {
-  "receiver" : "MATRIX_ID",
-  "sender" : "HOLOLENS_ID",
-  "body_message":
-  {
-    "func" : "HeadUp",
-	"parameters":
-	{
-		"H_joystick" : 1
-	}
-  }
-};
-
-var dataPacketHeadDown = {
-  "receiver" : "MATRIX_ID",
-  "sender" : "HOLOLENS_ID",
-  "body_message":
-  {
-    "func" : "HeadDown",
-	"parameters":
-	{
-		"H_joystick" : 1
-	}
-  }
-};
 
 var dataPacketSTOP = {
   "receiver" : "HEXAPOD_ID",
@@ -279,8 +254,6 @@ var dataPacketArmDownJSON = JSON.stringify(dataPacketArmDown);
 var dataPacketPlierJSON = JSON.stringify(dataPacketPlier);
 var dataPacketRightRotationBaseJSON = JSON.stringify(dataPacketRightRotationBase);
 var dataPacketLeftRotationBaseJSON = JSON.stringify(dataPacketLeftRotationBase);
-var dataPacketHeadUpJSON = JSON.stringify(dataPacketHeadUp);
-var dataPacketHeadDownJSON = JSON.stringify(dataPacketHeadDown);
 
 
 /* End of our message creation */
@@ -435,12 +408,6 @@ function controlRobot(data, sock, fs, mqttClient, request, setup) {
 		  break;
 		  case '13':
 			mqttClient.publish(setup.tin, dataPacketLeftRotationBaseJSON, {qos: setup.qos});
-		  break;
-		  case '14': 
-			mqttClient.publish(setup.tin, dataPacketHeadUpJSON, {qos: setup.qos});
-		  break;
-		  case '15':
-			mqttClient.publish(setup.tin, dataPacketHeadDownJSON, {qos: setup.qos});
 		  break;
         default:
           console.log("Not Implement yet!");

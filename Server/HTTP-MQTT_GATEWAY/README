@@ -1,9 +1,10 @@
-HOW TO USE:
+HOW TO USE: 
 
-  - Go in HTTP-MQTT_GATEWAY with your terminal
-  - launch setup.json , then http_gateway.js (It's very important to launch them in this order, otherwise it'll not work)
 
-when it's done, your brocker is ready to do his job
+Te placer avec un terminal dans le dossier du serveur
 
-Enjoy with the robot ;)
+Lancer le serveur avec : node http_gateway.js
 
+Enjoy, prévenir en cas d'erreur! :p 
+
+Joyeuse Pacques!
